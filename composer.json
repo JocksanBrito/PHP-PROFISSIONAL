@@ -1,0 +1,23 @@
+{
+    "name": "san/php-profissional",
+    "description": "php-profissional",
+    "autoload": {
+        "files": [
+            "app/helpers/constants.php",
+            "app/router/router.php",
+            "app/core/controller.php",
+            "app/databases/connect.php",
+            "app/databases/fetch.php",
+            "app/helpers/redirect.php"
+        ],
+        "psr-4": {
+            "app\\": "app"
+        }
+    },
+    "authors": [
+        {
+            "name": "jocksan"
+        }
+    ],
+    "require": {}
+}
