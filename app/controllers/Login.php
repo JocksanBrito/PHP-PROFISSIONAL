@@ -20,18 +20,24 @@ class Login
         $password = strip_tags($_POST['password']);
 
         if (empty($email) || empty($password)) {
-            return redirect('/login');
+            return setMessageAndRedirect('message', 'Usuário e senha inválidos', '/login');
         }
         $user = findBy('users', 'email', $email);
 
         if (!$user) {
-            return redirect('/login');
+            return setMessageAndRedirect('message', 'Usuário e senha inválidos', '/login');
         }
 
         if (!password_verify($password, $user->password)) {
-            return redirect('/login');
+            return setMessageAndRedirect('message', 'Usuário e senha inválidos', '/login');
         }
-        $_SESSION['logged'] = $user;
+        $_SESSION[LOGGED] = $user;
+        return redirect('/');
+    }
+
+    function destroy()
+    {
+        unset($_SESSION[LOGGED]);
         return redirect('/');
     }
 }

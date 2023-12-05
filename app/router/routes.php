@@ -10,5 +10,6 @@ return [
         '/user/create' => 'User@create',
         '/user/[0-9]+' => 'User@show',
         '/login' => 'Login@index',
+        '/logout' => 'Login@destroy',
     ],
 ];
